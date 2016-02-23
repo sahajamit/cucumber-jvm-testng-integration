@@ -11,10 +11,11 @@ import org.testng.annotations.Test;
  * An example of using TestNG when the test class does not inherit from
  * AbstractTestNGCucumberTests.
  */
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator2.feature", format = { "pretty",
-        "html:target/site/cucumber-pretty2",
-        "json:target/cucumber2.json" })
-public class RunCukesByCompositionGrp1_Test1 extends BaseTestCase {
+//@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", format = { "pretty",
+//        "html:target/site/cucumber-pretty2",
+//        "json:target/cucumber1.json" })
+@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", plugin = "json:target/cucumber1.json")
+public class RunCukesByCompositionGrp1_Test1 {
     @BeforeSuite
     public void beforeSuite() {
         System.out.println("This is beforeSuite");
