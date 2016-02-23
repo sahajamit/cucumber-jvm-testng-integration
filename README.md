@@ -8,7 +8,7 @@ then there is no proper documentation available to do this. So I decided to crea
 To have a simple integration you just need to create a runner class and just extend it from AbstractTestNGCucumberTests.
 Here is the basic code:
 
-<script src="https://gist.github.com/sahajamit/c637ff4ec195d74395cf.js"></script>
+<script src="https://gist.github.com/nisrulz/11c0d63428b108f10c83.js"></script>
 
 
 ### To run the test:
