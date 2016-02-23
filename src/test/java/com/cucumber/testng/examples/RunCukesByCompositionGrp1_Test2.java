@@ -10,9 +10,6 @@ import org.testng.annotations.Test;
 /**
  * Created by amit.rawat on 06/01/16.
  */
-//@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator2.feature", format = { "pretty",
-//        "html:target/site/cucumber-pretty2",
-//        "json:target/cucumber2.json" })
 @CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", plugin = "json:target/cucumber2.json")
 public class RunCukesByCompositionGrp1_Test2 {
     @BeforeSuite
