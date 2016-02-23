@@ -9,11 +9,13 @@ To have a simple integration you just need to create a runner class and just ext
 
 ###Here is the basic code:
 
+```java
 @CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", format = { "pretty",
         "html:target/site/cucumber-pretty",
         "json:target/cucumber1.json" })
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 }
+```
 
 If you will run this java file as a testNG class file then it will simply pick the features mentioned in the @CucumberOptions.
 We can point to a folder here with multiple feature files or we can point to a specific feature file.
@@ -28,7 +30,7 @@ To have full-fledged integration with TestNg where you can use testng xml along 
 /src/test/java\com/cucumber/testng/examples/RunCukesByCompositionGrp1_Test2.java
 
 ###Here is the sample code:
-
+```java
 @CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", 
 plugin = "json:target/cucumber2.json")
 public class RunCukesByCompositionGrp1_Test2 {
@@ -37,7 +39,7 @@ public class RunCukesByCompositionGrp1_Test2 {
         new TestNGCucumberRunner(getClass()).runCukes();
     }
 }
-
+```
 Here we are creating a test method that will be invoked by TestNG and invoke the Cucumber runner within that method. 
 So this test method can point to a group of features and will generate a dedicated results json file. 
 Similarly we can have another similar file "RunCukesByCompositionGrp1_Test2.java" which will point to a different batch of features.
