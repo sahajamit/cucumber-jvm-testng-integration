@@ -10,10 +10,26 @@ To have a simple integration you just need to create a runner class and just ext
 ###Here is the basic code:
 
 ```java
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", format = { "pretty",
-        "html:target/site/cucumber-pretty",
-        "json:target/cucumber1.json" })
-public class RunCukesTest extends AbstractTestNGCucumberTests {
+package com.cucumber.testng.examples;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
+/**
+ * Created by amit.rawat on 21/12/15.
+ */
+public class BaseStepDefs {
+    @Before()
+    public void before(Scenario scenario) {
+        scenario.getId();
+        System.out.println("This is before Scenario: " + scenario.getName().toString());
+    }
+
+    @After
+    public void after(Scenario scenario) {
+        System.out.println("This is after Scenario: " + scenario.getName().toString());
+    }
 }
 ```
 
