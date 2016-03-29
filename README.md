@@ -38,7 +38,7 @@ We can point to a folder here with multiple feature files or we can point to a s
 For Reporting, we are using the native cucumber-jvm reports which will generate a cucumber1.json file and will also generate a
 pretty html file.
 
-## Adbvanced Integration
+## Advanced Integration
 
 To have full-fledged integration with TestNg where you can use testng xml along with parallel execution. Please refer these files:
 /testng.xml
