@@ -7,6 +7,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 @CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator1.feature", format = { "pretty",
         "html:target/site/cucumber-pretty",
+        "rerun:target/rerun.txt",
         "json:target/cucumber1.json" })
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 }

@@ -1,6 +1,8 @@
 package com.cucumber.testng.examples;
 
 import cucumber.api.Format;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -12,10 +14,17 @@ import static org.testng.Assert.assertEquals;
 public class DateStepdefs {
     private String result;
     private DateCalculator calculator;
+    private Scenario scenario;
+
+    @Before
+    public void beforescenario(Scenario scenario){
+        this.scenario = scenario;
+    }
 
     @Given("^today is (.+)$")
     public void today_is(@Format("yyyy-MM-dd") Date date) {
         calculator = new DateCalculator(date);
+        scenario.write("<b>This is test message</b>");
     }
 
     @When("^I ask if (.+) is in the past$")
