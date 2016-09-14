@@ -11,7 +11,10 @@ import org.testng.annotations.Test;
 /**
  * Created by 1531411 on 3/29/2016.
  */
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/date_calculator2.feature", plugin = "json:target/cucumber2.json")
+@CucumberOptions(
+        features = "src/test/resources/com.cucumber.testng.examples/date_calculator2.feature",
+        tags = "@calculator",
+        plugin = "json:target/cucumber2.json")
 public class RunCukesByFeatureAndCompositionTest2 {
     private TestNGCucumberRunner testNGCucumberRunner;
 
