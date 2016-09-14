@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
- * Created by 1531411 on 3/29/2016.
+ * Created by Amit Rawat on 3/29/2016.
  */
 @CucumberOptions(
         features = "src/test/resources/com.cucumber.testng.examples/date_calculator2.feature",
