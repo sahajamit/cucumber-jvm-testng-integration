@@ -61,5 +61,5 @@ So this test method can point to a group of features and will generate a dedicat
 Similarly we can have another similar file "RunCukesByCompositionGrp1_Test2.java" which will point to a different batch of features.
 This way we can run this both groups of features parallelly using testng.xml.
 
-### To see this whole thing running simply checkout this projecy and run this command:
+### To see this whole thing running simply checkout this project and run this command:
 mvn clean test
