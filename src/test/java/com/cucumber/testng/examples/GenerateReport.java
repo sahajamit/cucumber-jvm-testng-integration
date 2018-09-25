@@ -1,43 +1,68 @@
 package com.cucumber.testng.examples;
 
+import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
+import net.masterthought.cucumber.Reportable;
+import org.apache.log4j.LogManager;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
+import static org.apache.log4j.LogManager.*;
 
 /**
- * Created by amit.rawat on 21/12/15.
+ * https://github.com/damianszczepanik/cucumber-reporting
  */
-public class GenerateReport {
-    public static void GenerateMasterthoughtReport(){
-        try{
-            String RootDir = System.getProperty("user.dir");
-            File reportOutputDirectory = new File("target/Masterthought");
-            List<String> list = new ArrayList<String>();
-            list.add("target/cucumber1.json");
-            list.add("target/cucumber2.json");
+public class GenerateReport
+{
+    static Reportable result;
 
-            String pluginUrlPath = "";
-            String buildNumber = "1";
-            String buildProject = "cucumber-jvm";
-            boolean skippedFails = true;
-            boolean pendingFails = true;
-            boolean undefinedFails = true;
-            boolean missingFails = true;
-            boolean flashCharts = true;
+    private GenerateReport()
+    {
+        // do nothing
+    }
+
+    public static void generateReport()
+    {
+        try
+        {
+            File reportOutputDirectory = new File("target");
+            List<String> jsonFiles = new ArrayList<>();
+            jsonFiles.add("target/cucumber1.json");
+            jsonFiles.add("target/cucumber2.json");
+
             boolean runWithJenkins = false;
-            boolean highCharts = false;
-            boolean parallelTesting = true;
-            boolean artifactsEnabled = false;
-            String artifactConfig = "";
+            boolean parallelTesting = false;
+            String buildNumber = "1";
+            String projectName = "Project Name";
 
-            ReportBuilder reportBuilder = new ReportBuilder(list, reportOutputDirectory, pluginUrlPath, buildNumber,
-                    buildProject, skippedFails, pendingFails, undefinedFails, missingFails, flashCharts, runWithJenkins,
-                    highCharts, parallelTesting);
+            Configuration configuration = new Configuration(reportOutputDirectory, projectName);
 
-            reportBuilder.generateReports();
-        }catch(Exception e){
+            configuration.setParallelTesting(parallelTesting);
+            configuration.setRunWithJenkins(runWithJenkins);
+            configuration.setBuildNumber(buildNumber);
+
+            configuration.addClassifications("Platform", "Windows");
+            configuration.addClassifications("Browser", "Firefox");
+            configuration.addClassifications("Branch", "release/1.0");
+
+            ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
+            result = reportBuilder.generateReports();
+
+            Logger logger = Logger.getAnonymousLogger();
+            File r = new File("target/cucumber-html-reports/overview-features.html");
+            logger.info("Report location: (" + r.getAbsolutePath() + ":0)");
+
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
+
+    public static void validateReport()
+    {
+        // nothing yet
+    }
+
 }
